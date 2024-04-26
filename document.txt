@@ -1,0 +1,36 @@
+Create Virtual environment in an empty project folder by hitting following command:
+    py -m venv env
+Activare Virtual environment by hitting  following command: 
+    env/Scripts/activate
+Install following dependies by hitting following commands, here mangum is for AWS lambda:
+    pip install fastapi
+    pip install uvicorn 
+    pip install mangum
+Hit following command to run project:
+    uvicorn main:app --reload
+Install MongoDB driver by following command, which you can get after creating MongoDB cluster and database deployment(steps are mentioned separately below):
+    py -m pip install "pymongo[srv]"
+Create requirement.txt file by hitting following command, this will create a list of dependies you already installed:
+    pip freeze > requirements.txt
+Please note: latest version of fastAPI under requirements.txt file throwing error on AWS lambda, so better to use following stabled version:
+    fastapi==0.99.0
+Create dependencies folder which will have all dependencies drivers to execute on AWS lambda:
+    pip3 install -t dependencies -r requirements.txt
+Hit following command to create zip file of all dependencies to upload on AWS lambda:
+    cd dependencies; zip ../aws_lambda_artifact.zip -r .
+Please note: if (zip is not recognized as an internal or external command) error occur then:
+    download cygwin: https://www.cygwin.com/install.html
+    install steps: https://www.youtube.com/watch?v=XDN0IdPJbjg
+Before hitting following command, make sure you are in root directory not in "dependencies" folder, this command will add main.py in zip file under root location of zip folder:
+    zip aws_lambda_artifact.zip -u main.py
+Add/update models, routes, schema and config folders in above created zip file by following commands:
+    zip -r aws_lambda_artifact.zip routes
+    zip -r aws_lambda_artifact.zip models
+    zip -r aws_lambda_artifact.zip schema
+    zip -r aws_lambda_artifact.zip config
+
+
+fastapi==0.99.0
+mangum==0.17.0
+pymongo==4.6.3
+
