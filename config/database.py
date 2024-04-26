@@ -1,8 +1,9 @@
 from pymongo import MongoClient
-
-client = MongoClient("mongodb+srv://gd_atlas_user:Gdatlas123@cluster-gd.tdr7li6.mongodb.net/?retryWrites=true&w=majority")
-
-#client = MongoClient("mongodb+srv://Simran:Simran@095@cluster-sk1.sx8umd5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-SK1")
+import urllib.parse
+#client = MongoClient("mongodb+srv://gd_atlas_user:Gdatlas123@cluster-gd.tdr7li6.mongodb.net/?retryWrites=true&w=majority")
+mongo_user = urllib.parse.quote_plus('Simran')
+mongo_password = urllib.parse.quote_plus('Simran@095')
+client = MongoClient("mongodb+srv://"+mongo_user+":"+mongo_password+"@cluster-sk1.sx8umd5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-SK1")
 
 db = client.teacher_db
 
