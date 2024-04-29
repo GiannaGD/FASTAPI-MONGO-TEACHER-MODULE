@@ -29,6 +29,14 @@ Add/update models, routes, schema and config folders in above created zip file b
     zip -r aws_lambda_artifact.zip schema
     zip -r aws_lambda_artifact.zip config
 
+Create MongoDB accout with following steps:
+    1.  Signup into MongoDB Atlas accout https://account.mongodb.com/account/login
+    2.  Create cluster which you will create in signup process.
+    3.  After successfully loggedin go to Security>Network Access> add IP Address 0.0.0.0/0 
+    4.  Go to Deployment>Database & click Connect button
+    5.  Click Drivers under "Connect to your application" 
+    6.  Copy code under 'Add your connection string into your application code" for connecting FastAPI with MongoDB
+    
 
 fastapi==0.99.0
 mangum==0.17.0
