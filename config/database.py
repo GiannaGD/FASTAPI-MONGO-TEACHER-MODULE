@@ -4,7 +4,8 @@ import urllib.parse
 mongo_user = urllib.parse.quote_plus('Simran')
 mongo_password = urllib.parse.quote_plus('Simran@095')
 client = MongoClient("mongodb+srv://"+mongo_user+":"+mongo_password+"@cluster-sk1.sx8umd5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-SK1")
-
+#client = MongoClient("mongodb+srv://Simran1:Simran095@cluster-sk1.mrumbtq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-SK1")
+#client = MongoClient("mongodb+srv://gd_atlas_user:Gdatlas123@cluster-sk1.mrumbtq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-SK1")
 db = client.teacher_db
 
 collection_name = db["teacher_collection"]
